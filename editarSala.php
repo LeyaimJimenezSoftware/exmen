@@ -19,7 +19,7 @@ if (isset($_GET["id"])) {
        $res = $dato['responsable'];
        $tel = $dato['telefono'];
        $mail = $dato["email_responsable"];
-       $ip = $dato["ip"];
+       $observaciones = $dato["observaciones"];
        $isdn = $dato["isdn"];
        $id = $dato["id_sala_remota"];
     
@@ -81,9 +81,9 @@ if (isset($_GET["id"])) {
            
   </div>
     <div class="form-group">
-    <label for="ejemplo_email_1">IP</label>
-    <input name= "ip" type="text" class="form-control" id="juan Perez"
-           placeholder="Introduce IP"value= "<?=$ip;?>">
+    <label for="ejemplo_email_1">Observaciones</label>
+    <input name= "observaciones" type="text" class="form-control" id="juan Perez"
+           placeholder="Observaciones"value= "<?=$observaciones;?>">
   </div>
     <div class="form-group">
     <label for="ejemplo_email_1">ISDN</label>
