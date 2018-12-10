@@ -1,5 +1,8 @@
 <?php session_start(); 
 //datos para establecer la conexion con la base de mysql.
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require "cfg/conexion.php";
 
 // verificamos si se han enviado ya las variables necesarias.
@@ -19,8 +22,8 @@ if (isset($_GET["nom"])) {
         formRegistro();
     }else{
 
-                $query = 'INSERT INTO SALA_REMOTA (nombre, telefono, email_responsable, ip, issdn) VALUES ("'.$name.'","'.$responsable.'","'.$telefono.'","'.$email.'","'.$ip.'","'.$isdn.'")';
-                mysql_query($query) or die(mysql_error());
+                $query = 'INSERT INTO sala_remota (nombre, responsable, telefono, email_responsable, ip, isdn) VALUES ("'.$name.'","'.$responsable.'","'.$telefono.'","'.$email.'","'.$ip.'","'.$isdn.'")';
+                mysqli_query($mysqli,$query) or die(mysqli_error());
                 echo 'La sala '.$name.' ha sido registrada de manera satisfactoria.<br/>';
    header('Location: index.php');
             }

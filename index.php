@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 
     <meta charset="utf-8">
@@ -25,17 +26,21 @@
 
 <body>
 <?php //session_start(); 
-require "cfg/conexion.php";
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require "cfg/conexion.php";
 
 
    $query="select * from SALA_REMOTA";
 
-   $resultado=mysql_query($query);
+   $resultado=mysqli_query($mysqli,$query);
    echo "<div class='container'>";
    echo "<table class='table table-striped'>";
    echo "<th> Nombre de Sala</th> <th>Respondable de Sala</th> <th>Telefono</th> <th>E-Mail</th> <th>IP</th> <th>ISDN</th> <th>Editar</th> <th>Eliminar</th>";
-   while ($dato=mysql_fetch_array($resultado)) {
+   while ($dato=mysqli_fetch_array($resultado)) {
    
    echo "<tr>";  
    echo "<td>". $dato['nombre']."</td>";
